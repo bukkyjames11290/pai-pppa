@@ -1,0 +1,78 @@
+import { Account } from '@/utils/types';
+
+export const mockAccounts: Account[] = [
+  {
+    account_id: 'ACC001',
+    holder: {
+      fullName: 'Eugene Neuliep L.',
+      email: 'eu*@gmail.com',
+      dateCreated: '8/14/2025', // m/d/y
+      username: 'sample@gmail.com',
+      password: 'sample'
+    },
+    bank_details: {
+      account_type: 'Checking',
+      isAccountNumber: true,
+      balance_usd: 850502.12
+    },
+    transaction_mgs_code: {
+      transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
+      transaction_code: '2378',
+      headerText: 'Dear Valued Customer,',
+      lastStepText: 'Your PayPal account is on hold. You cannot make transactions right now. Please contact our customer service team for assistance.',
+      wireDate: true
+    },
+    transaction_history: [
+      {
+        date: 'August 13, 2025',
+        transactions: [
+          {
+            name: 'Mark Wleme',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 4267.0
+          },
+          {
+            name: 'Jane Doe',
+            description: 'Money Sent',
+            status: 'Success',
+            amount_usd: -150.0
+          }
+        ]
+      },
+      {
+        date: 'August 12, 2025',
+        transactions: [
+          {
+            name: 'John Doe',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 4267.0
+          }
+        ]
+      },
+      {
+        date: 'August 11, 2025',
+        transactions: [
+          {
+            name: 'Walmart',
+            description: 'Payment Sent',
+            status: 'Success',
+            amount_usd: -120.0
+          }
+        ]
+      },
+      {
+        date: 'August 10, 2025',
+        transactions: [
+          {
+            name: 'D&D Building',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: -120.0
+          }
+        ]
+      }
+    ]
+  }
+];
