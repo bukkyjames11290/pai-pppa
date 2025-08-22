@@ -111,8 +111,25 @@ export const mockAccounts: Account[] = [
             name: 'BASF',
             description: 'Money Received',
             status: 'Success',
-            amount_usd: 150080.0
-          }
+            amount_usd: 75080.0
+          },
+        ]
+      },
+      {
+        date: 'July 13, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'BASF',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 75080.0
+          },
         ]
       },
       {
@@ -128,7 +145,19 @@ export const mockAccounts: Account[] = [
             name: 'E.ON',
             description: 'Money Received',
             status: 'Success',
-            amount_usd: 175080.0
+            amount_usd: 87500.0
+          },
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'E.ON',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 87580.0
           }
         ]
       },
@@ -145,7 +174,24 @@ export const mockAccounts: Account[] = [
             name: 'Allianz',
             description: 'Money Received',
             status: 'Success',
-            amount_usd: 200080.0
+            amount_usd: 100080.0
+          }
+        ]
+      },
+      {
+        date: 'May 8, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Allianz',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 100080.0
           }
         ]
       },
@@ -162,7 +208,24 @@ export const mockAccounts: Account[] = [
             name: 'Bayerische Motoren Werke AG',
             description: 'Money Received',
             status: 'Success',
-            amount_usd: 175080.0
+            amount_usd: 87580.0
+          }
+        ]
+      },
+      {
+        date: 'April 27, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Bayerische Motoren Werke AG',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 87580.0
           }
         ]
       }
