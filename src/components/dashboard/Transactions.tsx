@@ -30,7 +30,7 @@ export default function Transactions() {
   const hasTransactions = user.transaction_history && user.transaction_history.length > 0;
 
   return (
-    <div className="border w-full">
+    <div className="border w-full mb-5">
       <div className="bg-white sticky top-0 z-10 p-3 py-5 flex items-center justify-between gap-1">
         <Link href="/dashboard" className="flex items-center gap-2">
           <IoIosArrowBack />

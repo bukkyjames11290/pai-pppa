@@ -174,7 +174,19 @@ export const mockAccounts: Account[] = [
             name: 'Allianz',
             description: 'Money Received',
             status: 'Success',
-            amount_usd: 100080.0
+            amount_usd: 50080.0
+          },
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Allianz',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 50080.0
           }
         ]
       },
@@ -191,7 +203,31 @@ export const mockAccounts: Account[] = [
             name: 'Allianz',
             description: 'Money Received',
             status: 'Success',
-            amount_usd: 100080.0
+            amount_usd: 50080.0
+          },
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Allianz',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 25080.0
+          },
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Allianz',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 25080.0
           }
         ]
       },
