@@ -58,8 +58,7 @@ const SelectBks: React.FC<SelectBksProps> = ({ selectedBank, setSelectedBank }) 
             value={selectedBank ? selectedBank.name : ''}
             onClick={() => setIsModalOpen(true)}
             placeholder="Select a bank"
-            // className={`w-full p-3 my-2 min-h-[60px] bg-[#f8f8f8] rounded-lg border-none text-[#2e2e2e] focus:outline-none ${selectedBank ? "pl-[55px]" : ""} ${selectedBank.resize ? "pl-[65px]" : ""}`}
-            className={`w-full p-3 min-h-[60px] bg-[#f8f8f8] rounded-lg border-none text-[#2e2e2e] focus:outline-none ${
+            className={`w-full min-h-[60px] bg-[#f8f8f8] rounded-lg border-none text-[#2e2e2e] focus:outline-none ${
               selectedBank ? (selectedBank.resize ? 'pl-[65px]' : '') : ''
             }`}
           />

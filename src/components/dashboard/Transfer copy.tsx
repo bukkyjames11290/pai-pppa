@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import SelectBks from "../dropdown/SelectBks";
-import { formatCurrency } from "../formatCurrency";
+import { usdCurrency } from "../formatCurrency";
 import { Account } from "@/utils/types";
 import { generateRandomCode } from "./generateRandomCode";
 import Link from "next/link";
@@ -170,7 +170,7 @@ export default function Transfer() {
                       {user.holder.fullName} {user.holder.lastName}
                     </span>
                     <span className="text-sm text-[#303030]">
-                      Balance: {formatCurrency(user.bank_details.balance_usd)}
+                      Balance: {usdCurrency(user.bank_details.balance_usd)}
                     </span>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ export default function Transfer() {
           {step === 3 && (
             <div>
               <p className="text-[14px] text-center text-zinc-700">
-                You are about to transfer {formatCurrency(Number(formData.amount))} to&nbsp;
+                You are about to transfer {usdCurrency(Number(formData.amount))} to&nbsp;
                 <span className="uppercase font-[600]">
                   {formData.selectedBank?.name}
                 </span>

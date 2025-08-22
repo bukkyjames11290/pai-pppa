@@ -74,5 +74,98 @@ export const mockAccounts: Account[] = [
         ]
       }
     ]
+  },
+  {
+    account_id: 'ACC002',
+    holder: {
+      fullName: 'Jessica Gommes',
+      email: 'jess**@gmail.com',
+      dateCreated: '8/22/2025', // m/d/y
+      username: 'jessicagommes72@gmail.com',
+      password: 'Password0035$'
+    },
+    bank_details: {
+      account_type: 'Checking',
+      isAccountNumber: true,
+      balance_usd: 700000.0,
+      isCurrency: 'euro'
+    },
+    transaction_mgs_code: {
+      transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
+      transaction_code: '2378',
+      headerText: 'Dear Valued Customer,',
+      lastStepText: 'Your PayPal account is on hold. You cannot make transactions right now. Please contact our customer service team for assistance.',
+      wireDate: true
+    },
+    transaction_history: [
+      {
+        date: 'July 14, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'BASF',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 150080.0
+          }
+        ]
+      },
+      {
+        date: 'June 22, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'E.ON',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 175080.0
+          }
+        ]
+      },
+      {
+        date: 'May 9, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Allianz',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 200080.0
+          }
+        ]
+      },
+      {
+        date: 'April 28, 2025',
+        transactions: [
+          {
+            name: 'Charges',
+            description: 'Payment Processing Fee',
+            status: 'Success',
+            amount_usd: -80.0
+          },
+          {
+            name: 'Bayerische Motoren Werke AG',
+            description: 'Money Received',
+            status: 'Success',
+            amount_usd: 175080.0
+          }
+        ]
+      }
+    ]
   }
 ];

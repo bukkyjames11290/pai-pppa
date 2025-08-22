@@ -1,7 +1,7 @@
 'use client';
 import { Account, Transaction } from '@/utils/types';
 import React, { useState } from 'react';
-import { formatCurrency } from '../formatCurrency';
+import { euroCurrency, usdCurrency } from '../formatCurrency';
 import { HiArrowDown } from 'react-icons/hi';
 import Link from 'next/link';
 import { HiMiniArrowRight } from 'react-icons/hi2';
@@ -43,12 +43,12 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ user }) => {
 
                 {group.transactions.map((transaction: Transaction) => (
                   <div key={transaction.transaction_id} className="flex justify-between py-2">
-                    <div className="flex gap-2 text-gray-800">
+                    <div className="flex gap-2 text-gray-800 mr-5">
                       <button className="border-none flex items-center justify-center outline-none rounded-full w-[35px] h-[35px] bg-sky-600/10">
                         <HiArrowDown className={`${transaction.amount_usd < 0 ? '-rotate-[130deg] text-red-500' : 'text-green-700 rotate-[45deg]'}`} />
                       </button>
                       <div className="flex flex-col gap-1 justify-between">
-                        <div className="flex flex-col w-[200px] sm:max-w-full">
+                        <div className="flex flex-col max-w-full">
                           <span className="text-base">{transaction.name}</span>
                           <span className="text-xs">{transaction.description}</span>
                         </div>
@@ -58,7 +58,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({ user }) => {
                     <div className="flex flex-col gap-1 text-right">
                       <span className={`text-sm font-[600] ${transaction.amount_usd < 0 ? 'text-black' : 'text-green-700'}`}>
                         {transaction.amount_usd < 0 ? '' : '+'}
-                        {formatCurrency(transaction.amount_usd)}
+                        {user.bank_details.isCurrency === 'euro' ? euroCurrency(transaction.amount_usd) : usdCurrency(transaction.amount_usd)}
                       </span>
                     </div>
                   </div>

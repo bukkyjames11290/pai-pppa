@@ -6,6 +6,8 @@ import { FiX } from 'react-icons/fi';
 import { Account } from '@/utils/types';
 import Link from 'next/link';
 import { RxArrowTopLeft } from 'react-icons/rx';
+import { FaCheck } from 'react-icons/fa6';
+import { IoAlertCircleSharp } from 'react-icons/io5';
 
 export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames }: any) {
   const [user, setUser] = useState<Account | null>(null);
@@ -50,7 +52,7 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
 
   const handleSend = async () => {
     if (amount === '0.00') {
-      alert('Please enter an amount greater than $0.00');
+      alert(`Please enter an amount greater than ${user?.bank_details.isCurrency ? '€' : '$'}0.00`);
       return;
     }
 
@@ -107,9 +109,7 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
                     {user?.transaction_mgs_code.lastStepText ? (
                       <div className="flex flex-col items-center justify-center">
                         <div className="bg-red-100 p-6 rounded-full mb-4 self-start">
-                          <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
+                          <IoAlertCircleSharp size={25} className="text-red-500" />
                         </div>
                         <p className="text-lg font-medium leading-6 text-gray-9000">
                           {user?.transaction_mgs_code.headerText}
@@ -122,7 +122,8 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
                       <>
                         <h3 className="text-lg font-medium text-gray-900">Payment Successful!</h3>
                         <p className="text-gray-500 mt-2">
-                          ${amount} sent to {selectedUserNames.join(', ')}
+                          {user?.bank_details.isCurrency ? '€' : '$'}
+                          {amount} sent to {selectedUserNames.join(', ')}
                         </p>
                       </>
                     )}
@@ -138,7 +139,7 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
                       {/* Header */}
                       <div className="flex justify-between items-center px-6">
                         <button onClick={() => setIsOpen(false)} className="max-w-max p-1">
-                          <RxArrowTopLeft size={25} className='-rotate-[44deg]' />
+                          <RxArrowTopLeft size={25} className="-rotate-[44deg]" />
                         </button>
                         <div className="w-full flex items-center justify-center gap-1">
                           <span className="text-gray-800">Request money from:</span>
@@ -149,10 +150,10 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
                       {/* Amount Display */}
                       <div className="mt-8 flex flex-col items-center px-6">
                         <div className="text-5xl font-light">
-                          <sup>$</sup>
+                          <sup>{user?.bank_details.isCurrency ? '€' : '$'}</sup>
                           {amount}
                         </div>
-                        <button className="bg-gray-100 text-sm p-1 px-4 rounded-full mt-4">USD</button>
+                        <button className="bg-gray-100 text-sm p-1 px-4 rounded-full mt-4">{user?.bank_details.isCurrency ? "EURO" : "USD"}</button>
                       </div>
                     </div>
 

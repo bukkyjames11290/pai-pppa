@@ -5,6 +5,7 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/re
 import { FiX } from 'react-icons/fi';
 import Link from 'next/link';
 import { FaCheck } from 'react-icons/fa6';
+import { IoAlertCircleSharp } from 'react-icons/io5';
 
 export default function SendToFriendModal({ isOpen, setIsOpen, selectedUserNames, user }: any) {
   const [amount, setAmount] = React.useState('0.00');
@@ -44,7 +45,7 @@ export default function SendToFriendModal({ isOpen, setIsOpen, selectedUserNames
 
     // Check if amount is zero
     if (amountToSend <= 0) {
-      alert('Please enter an amount greater than $0.00');
+      alert(`Please enter an amount greater than ${user?.bank_details.isCurrency ? '€' : '$'}0.00`);
       return;
     }
 
@@ -105,8 +106,8 @@ export default function SendToFriendModal({ isOpen, setIsOpen, selectedUserNames
                   <div className="flex flex-col items-center justify-center p-6">
                     {user?.transaction_mgs_code.lastStepText ? (
                       <div className="flex flex-col items-center justify-center">
-                        <div className="bg-sky-100 p-6 rounded-full mb-4 self-start">
-                          <FaCheck size={25} className="text-sky-500" />
+                        <div className="bg-red-100 p-6 rounded-full mb-4 self-start">
+                          <IoAlertCircleSharp size={25} className="text-red-500" />
                         </div>
                         <p className="text-lg font-medium leading-6 text-gray-9000">
                           {user?.transaction_mgs_code.headerText}
@@ -119,7 +120,7 @@ export default function SendToFriendModal({ isOpen, setIsOpen, selectedUserNames
                       <>
                         <h3 className="text-lg font-medium text-gray-900">Payment Successful!</h3>
                         <p className="text-gray-500 mt-2">
-                          ${amount} sent to {selectedUserNames.join(', ')}
+                          {user?.bank_details.isCurrency ? '€' : '$'}{amount} sent to {selectedUserNames.join(', ')}
                         </p>
                       </>
                     )}
@@ -146,10 +147,10 @@ export default function SendToFriendModal({ isOpen, setIsOpen, selectedUserNames
                       {/* Amount Display */}
                       <div className="mt-8 flex flex-col items-center px-6">
                         <div className={`font-light ${amount.length > 12 ? 'text-3xl' : amount.length > 10 ? 'text-4xl' : amount.length > 8 ? 'text-5xl' : 'text-6xl'}`}>
-                          <sup>$</sup>
+                          <sup>{user?.bank_details.isCurrency ? '€' : '$'}</sup>
                           {amount}
                         </div>
-                        <button className="bg-gray-100 text-sm p-1 px-4 rounded-full mt-4">USD</button>
+                        <button className="bg-gray-100 text-sm p-1 px-4 rounded-full mt-4">{user?.bank_details.isCurrency ? "EURO" : "USD"}</button>
                         {insufficientBalance && <div className="mt-2 text-red-500 text-sm">Insufficient balance. Available: ${user?.bank_details?.balance_usd?.toFixed(2) || '0.00'}</div>}
                       </div>
                     </div>

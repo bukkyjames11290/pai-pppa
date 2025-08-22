@@ -4,7 +4,7 @@ import { Account, Transaction } from '@/utils/types';
 import React, { useEffect, useState } from 'react';
 import { HiArrowDown } from 'react-icons/hi';
 import { IoIosArrowBack } from 'react-icons/io';
-import { formatCurrency } from '../formatCurrency';
+import { euroCurrency, usdCurrency } from '../formatCurrency';
 import Link from 'next/link';
 
 export default function Transactions() {
@@ -52,7 +52,7 @@ export default function Transactions() {
                           <HiArrowDown className={`${transaction.amount_usd < 0 ? '-rotate-[130deg] text-red-500' : 'text-green-700 rotate-[45deg]'}`} />
                         </button>
                         <div className="flex flex-col gap-1 justify-between">
-                          <div className="flex flex-col w-[200px] sm:max-w-full">
+                          <div className="flex flex-col w-full">
                             <span className="text-base">{transaction.name}</span>
                             <span className="text-xs">{transaction.description}</span>
                           </div>
@@ -61,7 +61,7 @@ export default function Transactions() {
                       <div className="flex flex-col gap-1 text-right">
                         <span className={`text-sm font-[600] ${transaction.amount_usd < 0 ? 'text-black' : 'text-green-700'}`}>
                           {transaction.amount_usd < 0 ? '' : '+'}
-                          {formatCurrency(transaction.amount_usd)}
+                          {user.bank_details.isCurrency === 'euro' ? euroCurrency(transaction.amount_usd) : usdCurrency(transaction.amount_usd)}
                         </span>
                         <span className={`text-xs hidden font-medium ${transaction.status === 'Pending' ? 'text-yellow-500 font-bold' : 'text-green-600'}`}>{transaction.status}</span>
                       </div>

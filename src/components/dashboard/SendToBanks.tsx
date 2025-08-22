@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, Fragment } from "react";
 import SelectBks from "../dropdown/SelectBks";
-import { formatCurrency } from "../formatCurrency";
+import { usdCurrency } from "../formatCurrency";
 import { Account } from "@/utils/types";
 import { generateRandomCode } from "./generateRandomCode";
 import Link from "next/link";
@@ -241,7 +241,7 @@ export default function SendToBanks() {
                       {user.holder.fullName} {user.holder.lastName}
                     </span>
                     <span className="text-sm text-[#303030]">
-                      Balance: {formatCurrency(user.bank_details.balance_usd)}
+                      Balance: {usdCurrency(user.bank_details.balance_usd)}
                     </span>
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function SendToBanks() {
                     Amount
                   </label>
                   <button className="absolute text-[#888888] w-[50px] min-h-[50px] border-r left-0 text-lg bottom-[2px]">
-                    $
+                    {user.bank_details.isCurrency ? "€" : "$"}
                   </button>
                   <input
                     type="number"
@@ -301,7 +301,7 @@ export default function SendToBanks() {
             <div>
               <p className="text-[14px] text-center text-zinc-700">
                 You are about to transfer{" "}
-                {formatCurrency(Number(formData.amount))} to&nbsp;
+                {usdCurrency(Number(formData.amount))} to&nbsp;
                 <span className="uppercase font-[600]">
                   {formData.selectedBank?.name}
                 </span>

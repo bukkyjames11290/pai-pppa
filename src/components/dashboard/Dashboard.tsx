@@ -1,25 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Account, Transaction } from '@/utils/types';
+import { Account } from '@/utils/types';
 import Link from 'next/link';
 import TransactionHistory from './TransactionHistory';
 import Header from './header/Header';
-import { formatCurrency } from '../formatCurrency';
-import { IoIosArrowForward } from 'react-icons/io';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { euroCurrency, usdCurrency } from '../formatCurrency';
 import Loader from '../Loader';
 import { BillIcon, CardIcon } from '../svgIcons';
-
-const getFormattedDate = () => {
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric'
-  };
-  const today = new Date();
-  return today.toLocaleDateString('en-US', options);
-};
 
 export default function Dashboard() {
   const router = useRouter();
@@ -72,7 +60,9 @@ export default function Dashboard() {
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-1">
-                <span className="text-2xl flex items-center gap-1">{formatCurrency(user.bank_details.balance_usd ?? 0)}</span>
+                <span className="text-2xl flex items-center gap-1">
+                  {user.bank_details.isCurrency === 'euro' ? euroCurrency(user.bank_details.balance_usd ?? 0) : usdCurrency(user.bank_details.balance_usd ?? 0)}
+                </span>
                 <span className="font-normal text-gray-500 text-xs">Estimated total of all currencies</span>
               </div>
               <div className="flex items-center gap-1">
@@ -82,7 +72,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="flex flex-col gap-1 rounded-b-xl bg-sky-600 p-6 text-white">
-            <span className="text-base font-semibold">Earn $50 (5,000 pts)</span>
+            <span className="text-base font-semibold">Earn {user.bank_details.isCurrency ? "€50" : "$50"} (5,000 pts)</span>
             <span className="text-xs">Pay 5 times with PayPal Debit</span>
           </div>
         </div>
