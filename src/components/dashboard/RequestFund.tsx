@@ -65,11 +65,17 @@ export default function RequestFund() {
     setSearchTerm('');
   };
 
+  // Check if user can send request (either has selected users or has typed a search term)
+  const canRequest = selectedUserNames.length > 0 || searchTerm.trim().length > 0;
+
+  // Combine selected user names with the search term for final display
+  const recipientNames = selectedUserNames.length > 0 ? selectedUserNames : searchTerm.trim() ? [searchTerm.trim()] : [];
+
   return (
     <div className="">
       <div className="p-4">
         <div className="rounded-lg p-4">
-          <h2 className="text-[#2e2e2e] text-lg font-semibold mb-2">Send to friends on PayPal</h2>
+          <h2 className="text-[#2e2e2e] text-lg font-semibold mb-2">Request money from friends</h2>
 
           <div className="search-box relative">
             <input
@@ -89,36 +95,50 @@ export default function RequestFund() {
           {selectedUserNames.length === 0 && (
             <div className="user-list">
               <h2 className="py-2">{searchTerm ? 'Search results' : 'Recent searches'}</h2>
-              {displayUsers.map(user => (
-                <div
-                  key={user.id}
-                  className={`flex items-center py-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 group`}
-                  onClick={() => {
-                    toggleUserSelection(user.id);
-                    setIsOpen(true);
-                  }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 overflow-hidden">
-                    {user.profileUrl ? (
-                      <Image src={user.profileUrl} width={40} height={40} className="w-full h-full rounded-full object-cover" alt={user.name} />
-                    ) : (
-                      <div className={`w-full h-full flex items-center justify-center ${getRandomColor(user.name.charAt(0))} text-white font-medium`}>{user.name.charAt(0).toUpperCase()}</div>
-                    )}
-                  </div>
-                  <div className="user-info flex-1">
-                    <h3 className="font-medium">{user.name}</h3>
-                    <p className="text-gray-500 text-sm">@{user.username}</p>
-                  </div>
-                  <button onClick={e => removeFromRecentSearches(user.id, e)} className="transition-opacity text-gray-400 hover:text-red-500 focus:outline-none p-2">
-                    <FiX size={18} />
-                  </button>
-                </div>
-              ))}
+              {displayUsers.length > 0
+                ? displayUsers.map(user => (
+                    <div
+                      key={user.id}
+                      className={`flex items-center py-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 group`}
+                      onClick={() => {
+                        toggleUserSelection(user.id);
+                        setIsOpen(true);
+                      }}
+                    >
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 overflow-hidden">
+                        {user.profileUrl ? (
+                          <Image src={user.profileUrl} width={40} height={40} className="w-full h-full rounded-full object-cover" alt={user.name} />
+                        ) : (
+                          <div className={`w-full h-full flex items-center justify-center ${getRandomColor(user.name.charAt(0))} text-white font-medium`}>{user.name.charAt(0).toUpperCase()}</div>
+                        )}
+                      </div>
+                      <div className="user-info flex-1">
+                        <h3 className="font-medium">{user.name}</h3>
+                        <p className="text-gray-500 text-sm">@{user.username}</p>
+                      </div>
+                      <button onClick={e => removeFromRecentSearches(user.id, e)} className="transition-opacity text-gray-400 hover:text-red-500 focus:outline-none p-2">
+                        <FiX size={18} />
+                      </button>
+                    </div>
+                  ))
+                : searchTerm && (
+                    <div className="py-4 text-center text-gray-500">
+                      <p>No users found for "{searchTerm}"</p>
+                      <p>Please make sure you making request to real user.</p>
+                    </div>
+                  )}
             </div>
+          )}
+
+          {canRequest && (
+            <button className="mt-4 flex p-4 bg-sky-600 text-white font-semibold rounded-full hover:bg-sky-700 transition-colors" onClick={() => setIsOpen(true)}>
+              <p>Request money from: &nbsp;</p>
+              <p className="">{recipientNames.join(', ')}</p>
+            </button>
           )}
         </div>
       </div>
-      <RequestFundModal isOpen={isOpen} setIsOpen={setIsOpen} selectedUserNames={selectedUserNames} />
+      <RequestFundModal isOpen={isOpen} setIsOpen={setIsOpen} selectedUserNames={recipientNames} />
     </div>
   );
 }

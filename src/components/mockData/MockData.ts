@@ -112,7 +112,7 @@ export const mockAccounts: Account[] = [
             description: 'Money Received',
             status: 'Success',
             amount_usd: 75080.0
-          },
+          }
         ]
       },
       {
@@ -129,7 +129,7 @@ export const mockAccounts: Account[] = [
             description: 'Money Received',
             status: 'Success',
             amount_usd: 75080.0
-          },
+          }
         ]
       },
       {
@@ -262,6 +262,153 @@ export const mockAccounts: Account[] = [
             description: 'Money Received',
             status: 'Success',
             amount_usd: 87580.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    account_id: 'ACC003',
+    holder: {
+      fullName: 'Marie Micheal ',
+      email: 'm**@gmail.com',
+      dateCreated: '1/16/2026', // m/d/y
+      username: 'mariemicheal72@gmail.com',
+      password: 'MarieMicheal35$'
+    },
+    bank_details: {
+      account_type: 'Checking',
+      isAccountNumber: true,
+      balance_usd: 1730000.0,
+      isCurrency: ''
+    },
+    transaction_mgs_code: {
+      transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
+      transaction_code: '2378',
+      headerText: 'Dear Valued Customer,',
+      lastStepText:
+        'To make a transaction in your account a withdrawal fee of $4700.00 is required to be able to withdraw your money. Thank you for your continued trust and cooperation. Best regards, Paypal',
+      wireDate: true
+    },
+    transaction_history: [
+      {
+        date: 'January 15, 2026',
+        transactions: [
+          {
+            name: 'ExxonMobil',
+            description: 'Quarterly crude oil supply payment',
+            status: 'Success',
+            amount_usd: 300000
+          }
+        ]
+      },
+      {
+        date: 'November 6, 2025',
+        transactions: [
+          {
+            name: 'Vattenfall',
+            description: 'Wind farm maintenance contract payment',
+            status: 'Success',
+            amount_usd: 170000
+          }
+        ]
+      },
+      {
+        date: 'July 18, 2025',
+        transactions: [
+          {
+            name: 'Shell',
+            description: 'Refinery logistics service fee',
+            status: 'Success',
+            amount_usd: 180000
+          }
+        ]
+      },
+      {
+        date: 'March 10, 2025',
+        transactions: [
+          {
+            name: 'BASF',
+            description: 'Chemical supply delivery payment',
+            status: 'Success',
+            amount_usd: 200000
+          }
+        ]
+      },
+      {
+        date: 'October 21, 2024',
+        transactions: [
+          {
+            name: 'Chevron',
+            description: 'Oil pipeline infrastructure fee',
+            status: 'Success',
+            amount_usd: 150000
+          }
+        ]
+      },
+      {
+        date: 'June 9, 2024',
+        transactions: [
+          {
+            name: 'Neste',
+            description: 'Biofuel shipment payment',
+            status: 'Success',
+            amount_usd: 160000
+          }
+        ]
+      },
+      {
+        date: 'February 14, 2024',
+        transactions: [
+          {
+            name: 'TotalEnergies',
+            description: 'Natural gas distribution contract',
+            status: 'Success',
+            amount_usd: 170000
+          }
+        ]
+      },
+      {
+        date: 'September 12, 2023',
+        transactions: [
+          {
+            name: 'Uniper',
+            description: 'Electricity supply agreement payment',
+            status: 'Success',
+            amount_usd: 110000
+          }
+        ]
+      },
+      {
+        date: 'April 5, 2023',
+        transactions: [
+          {
+            name: 'ArcelorMittal',
+            description: 'Steel shipment payment',
+            status: 'Success',
+            amount_usd: 120000
+          }
+        ]
+      },
+      {
+        date: 'December 8, 2022',
+        transactions: [
+          {
+            name: 'Odfjell SE',
+            description: 'Chemical tanker delivery fee',
+            status: 'Success',
+            amount_usd: 80000
+          }
+        ]
+      },
+      {
+        date: 'January 20, 2022',
+        transactions: [
+          {
+            name: 'Yara International',
+            description: 'Fertilizer supply contract payment',
+            status: 'Success',
+            amount_usd: 90000
           }
         ]
       }

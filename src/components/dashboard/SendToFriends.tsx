@@ -82,6 +82,14 @@ export default function SendToFriends() {
     setSearchTerm('');
   };
 
+  // Check if user can send (either has selected users or has typed a search term)
+  const canSend = selectedUserNames.length > 0 || searchTerm.trim().length > 0;
+
+  // Combine selected user names with the search term for final display
+  const recipientNames = selectedUserNames.length > 0 
+    ? selectedUserNames 
+    : (searchTerm.trim() ? [searchTerm.trim()] : []);
+
   return (
     <div className="">
       <div className="p-4">
@@ -106,40 +114,52 @@ export default function SendToFriends() {
           {selectedUserNames.length === 0 && (
             <div className="user-list">
               <h2 className="py-2">{searchTerm ? 'Search results' : 'Recent searches'}</h2>
-              {displayUsers.map(user => (
-                <div
-                  key={user.id}
-                  className={`flex items-center py-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 group`}
-                  onClick={() => {
-                    toggleUserSelection(user.id);
-                    setIsOpen(true);
-                  }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 overflow-hidden">
-                    {user.profileUrl ? (
-                      <Image src={user.profileUrl} width={40} height={40} className="w-full h-full rounded-full object-cover" alt={user.name} />
-                    ) : (
-                      <div className={`w-full h-full flex items-center justify-center ${getRandomColor(user.name.charAt(0))} text-white font-medium`}>{user.name.charAt(0).toUpperCase()}</div>
-                    )}
+              {displayUsers.length > 0 ? (
+                displayUsers.map(user => (
+                  <div
+                    key={user.id}
+                    className={`flex items-center py-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 group`}
+                    onClick={() => {
+                      toggleUserSelection(user.id);
+                      setIsOpen(true);
+                    }}
+                  >
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 overflow-hidden">
+                      {user.profileUrl ? (
+                        <Image src={user.profileUrl} width={40} height={40} className="w-full h-full rounded-full object-cover" alt={user.name} />
+                      ) : (
+                        <div className={`w-full h-full flex items-center justify-center ${getRandomColor(user.name.charAt(0))} text-white font-medium`}>{user.name.charAt(0).toUpperCase()}</div>
+                      )}
+                    </div>
+                    <div className="user-info flex-1">
+                      <h3 className="font-medium">{user.name}</h3>
+                      <p className="text-gray-500 text-sm">@{user.username}</p>
+                    </div>
+                    <button onClick={e => removeFromRecentSearches(user.id, e)} className="transition-opacity text-gray-400 hover:text-red-500 focus:outline-none p-2">
+                      <FiX size={18} />
+                    </button>
                   </div>
-                  <div className="user-info flex-1">
-                    <h3 className="font-medium">{user.name}</h3>
-                    <p className="text-gray-500 text-sm">@{user.username}</p>
+                ))
+              ) : (
+                searchTerm && (
+                  <div className="py-4 text-center text-gray-500">
+                    <p>No users found for "{searchTerm}"</p>
+                    <p>Please make sure you sending to real user, so you don't lose your money.</p>
                   </div>
-                  <button onClick={e => removeFromRecentSearches(user.id, e)} className="transition-opacity text-gray-400 hover:text-red-500 focus:outline-none p-2">
-                    <FiX size={18} />
-                  </button>
-                </div>
-              ))}
+                )
+              )}
             </div>
           )}
 
-          {/* {selectedUserNames.length > 0 && (
-            <button className="mt-4 flex p-4 bg-sky-600 text-white font-semibold rounded-full" onClick={() => setIsOpen(true)}>
+          {canSend && (
+            <button 
+              className="mt-4 flex p-4 bg-sky-600 text-white font-semibold rounded-full hover:bg-sky-700 transition-colors" 
+              onClick={() => setIsOpen(true)}
+            >
               <p>Send money to: &nbsp;</p>
-              <p className="">{selectedUserNames.join(', ')}</p>
+              <p className="">{recipientNames.join(', ')}</p>
             </button>
-          )} */}
+          )}
         </div>
         <div className="px-6">
           <Link href="/dashboard/send-to-banks" className="flex items-center gap-2 bg-white p-4 rounded-lg w-full">
@@ -148,7 +168,7 @@ export default function SendToFriends() {
           </Link>
         </div>
       </div>
-      <SendToFriendModal isOpen={isOpen} setIsOpen={setIsOpen} selectedUserNames={selectedUserNames} user={user} />
+      <SendToFriendModal isOpen={isOpen} setIsOpen={setIsOpen} selectedUserNames={recipientNames} user={user} />
     </div>
   );
 }

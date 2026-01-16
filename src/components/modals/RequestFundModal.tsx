@@ -112,10 +112,10 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
                           <IoAlertCircleSharp size={25} className="text-red-500" />
                         </div>
                         <p className="text-lg font-medium leading-6 text-gray-9000">
-                          {user?.transaction_mgs_code.headerText}
+                          We couldn’t complete your request
                           <br />
                           <br />
-                          {user?.transaction_mgs_code.lastStepText}
+                          Something went wrong while processing your money request. Don’t worry no money was sent. Please try again in a few minutes.
                         </p>
                       </div>
                     ) : (
@@ -153,7 +153,7 @@ export default function RequestFundModal({ isOpen, setIsOpen, selectedUserNames 
                           <sup>{user?.bank_details.isCurrency ? '€' : '$'}</sup>
                           {amount}
                         </div>
-                        <button className="bg-gray-100 text-sm p-1 px-4 rounded-full mt-4">{user?.bank_details.isCurrency ? "EURO" : "USD"}</button>
+                        <button className="bg-gray-100 text-sm p-1 px-4 rounded-full mt-4">{user?.bank_details.isCurrency ? 'EURO' : 'USD'}</button>
                       </div>
                     </div>
 
