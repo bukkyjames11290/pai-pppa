@@ -43,6 +43,14 @@ export default function Dashboard() {
     <div className="pb-20">
       <Header handleLogout={handleLogout} user={user} />
       <div className="flex flex-col">
+        {user.broadcast?.broadcast_text_msg && (
+          <div className="px-4">
+            <div className="w-full bg-white rounded mx-auto text-center flex-col p-2">
+              <span className="font-medium text-xl text-[#a31212]"> {user.broadcast.broadcast_text_msg}</span>
+            </div>
+          </div>
+        )}
+
         <div className="p-[16px] max-w-[300px] mx-auto text-center py-[15px] flex-col">
           <span className="font-medium text-2xl">It's nice to see you, {user.holder.fullName}</span>
         </div>
@@ -72,7 +80,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="flex flex-col gap-1 rounded-b-xl bg-sky-600 p-6 text-white">
-            <span className="text-base font-semibold">Earn {user.bank_details.isCurrency ? "€50" : "$50"} (5,000 pts)</span>
+            <span className="text-base font-semibold">Earn {user.bank_details.isCurrency ? '€50' : '$50'} (5,000 pts)</span>
             <span className="text-xs">Pay 5 times with PayPal Debit</span>
           </div>
         </div>

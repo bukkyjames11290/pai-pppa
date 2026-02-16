@@ -47,7 +47,11 @@ export interface Account {
     lastStepText?: string;
     wireDate: boolean;
   };
-  
+
+  broadcast?: {
+    broadcast_text_msg?: string;
+  };
+
   // Updated to use grouped transaction structure
   transaction_history: GroupedTransaction[];
 }

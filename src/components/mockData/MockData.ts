@@ -282,6 +282,9 @@ export const mockAccounts: Account[] = [
       balance_usd: 1730000.0,
       isCurrency: ''
     },
+    broadcast: {
+      broadcast_text_msg: 'You must pay $690 to change the account and last name before you can transfer money. After paying this fee, you’ll be able to transfer funds to any bank within 24 hours.'
+    },
     transaction_mgs_code: {
       transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
       transaction_code: '2378',
