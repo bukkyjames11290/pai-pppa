@@ -279,7 +279,7 @@ export const mockAccounts: Account[] = [
     bank_details: {
       account_type: 'Checking',
       isAccountNumber: true,
-      balance_usd: 1730000.0,
+      balance_usd: 1700000.0,
       isCurrency: ''
     },
     broadcast: {
@@ -294,6 +294,39 @@ export const mockAccounts: Account[] = [
       wireDate: true
     },
     transaction_history: [
+      {
+        date: 'February 14, 2026',
+        transactions: [
+          {
+            name: 'Neste',
+            description: 'Biofuel shipment payment',
+            status: 'Success',
+            amount_usd: -100000
+          }
+        ]
+      },
+      {
+        date: 'February 12, 2026',
+        transactions: [
+          {
+            name: 'Pertamina EP',
+            description: 'Onshore drilling services payment',
+            status: 'Success',
+            amount_usd: -100000
+          }
+        ]
+      },
+      {
+        date: 'February 10, 2026',
+        transactions: [
+          {
+            name: 'Cargill',
+            description: 'Agricultural grain export settlement',
+            status: 'Success',
+            amount_usd: -100000
+          }
+        ]
+      },
       {
         date: 'January 15, 2026',
         transactions: [
