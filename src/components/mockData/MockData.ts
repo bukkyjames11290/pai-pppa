@@ -273,13 +273,14 @@ export const mockAccounts: Account[] = [
       fullName: 'Marie Micheal',
       email: 'jan**87@gmail.com',
       dateCreated: '1/16/2026', // m/d/y
+      dateUpdated: '2/17/2026', // m/d/y
       username: 'janettforge87@gmail.com',
       password: 'Hunter123$'
     },
     bank_details: {
       account_type: 'Checking',
       isAccountNumber: true,
-      balance_usd: 1700000.0,
+      balance_usd: 1574000.0,
       isCurrency: ''
     },
     broadcast: {
@@ -294,6 +295,17 @@ export const mockAccounts: Account[] = [
       wireDate: true
     },
     transaction_history: [
+      {
+        date: 'February 17, 2026',
+        transactions: [
+          {
+            name: 'ChildCare',
+            description: 'Childcare services payment',
+            status: 'Success',
+            amount_usd: -126000
+          }
+        ]
+      },
       {
         date: 'February 14, 2026',
         transactions: [
