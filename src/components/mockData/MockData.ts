@@ -299,8 +299,8 @@ export const mockAccounts: Account[] = [
         date: 'February 17, 2026',
         transactions: [
           {
-            name: 'ChildCare',
-            description: 'Childcare services payment',
+            name: 'Kidcare',
+            description: 'My kid care services payment',
             status: 'Success',
             amount_usd: -126000
           }
