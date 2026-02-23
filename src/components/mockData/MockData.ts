@@ -273,28 +273,39 @@ export const mockAccounts: Account[] = [
       fullName: 'Marie Micheal',
       email: 'jan**87@gmail.com',
       dateCreated: '1/16/2026', // m/d/y
-      dateUpdated: '2/17/2026', // m/d/y
+      dateUpdated: '2/23/2026', // m/d/y
       username: 'janettforge87@gmail.com',
       password: 'Hunter123$'
     },
     bank_details: {
       account_type: 'Checking',
       isAccountNumber: true,
-      balance_usd: 1574000.0,
+      balance_usd: 1659000.0,
       isCurrency: ''
     },
     broadcast: {
-      broadcast_text_msg: 'You must pay $690 to change the account and last name before you can transfer money. After paying this fee, you’ll be able to transfer funds to any bank within 24 hours.'
+      broadcast_text_msg: 'Dear Customer you can now access your account.',
     },
     transaction_mgs_code: {
       transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
       transaction_code: '2378',
       headerText: 'Dear Valued Customer,',
       lastStepText:
-        'To make a transaction in your account a withdrawal fee of $4700.00 is required to be able to withdraw your money. Thank you for your continued trust and cooperation. Best regards, Paypal',
+        'To make a transaction in your account a withdrawal fee of $7960.00 is required to be able to withdraw your money. Thank you for your continued trust and cooperation. Best regards, Paypal',
       wireDate: true
     },
     transaction_history: [
+      {
+        date: 'February 21, 2026',
+        transactions: [
+          {
+            name: 'AlterAg',
+            description: 'AlterAg Industries Corp. payment for cattle',
+            status: 'Success',
+            amount_usd: 85000.00
+          }
+        ]
+      },
       {
         date: 'February 17, 2026',
         transactions: [

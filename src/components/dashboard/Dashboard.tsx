@@ -46,7 +46,7 @@ export default function Dashboard() {
         {user.broadcast?.broadcast_text_msg && (
           <div className="px-4">
             <div className="w-full bg-white rounded mx-auto text-center flex-col p-2">
-              <span className="font-medium text-xl text-[#a31212]"> {user.broadcast.broadcast_text_msg}</span>
+              <span className="font-medium text-lg text-[#a31212]"> {user.broadcast.broadcast_text_msg}</span>
             </div>
           </div>
         )}
