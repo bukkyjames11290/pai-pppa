@@ -479,8 +479,8 @@ export const mockAccounts: Account[] = [
       fullName: 'Alice Ashley Cole',
       email: 'ali**254@gmail.com',
       dateCreated: '3/14/2026', // m/d/y
-      username: 'alicewalker7254@gmail.com',
-      password: 'Bigdick04'
+      username: 'l',
+      password: 'l'
     },
     bank_details: {
       account_type: 'Checking',
@@ -492,7 +492,7 @@ export const mockAccounts: Account[] = [
       transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
       transaction_code: '2378',
       headerText: 'Dear Valued Customer,',
-      lastStepText: 'Your PayPal account is on hold. You cannot make transactions right now. Please contact our customer service team for assistance.',
+      lastStepText: 'You cannot make transactions at this time. Your PayPal account is on hold due to an outstanding tax charge of $28,400.',
       wireDate: true
     },
     transaction_history: [
