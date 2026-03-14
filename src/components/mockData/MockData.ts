@@ -284,7 +284,7 @@ export const mockAccounts: Account[] = [
       isCurrency: ''
     },
     broadcast: {
-      broadcast_text_msg: 'Dear Customer you can now access your account.',
+      broadcast_text_msg: 'Dear Customer you can now access your account.'
     },
     transaction_mgs_code: {
       transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
@@ -302,7 +302,7 @@ export const mockAccounts: Account[] = [
             name: 'AlterAg',
             description: 'AlterAg Industries Corp. payment for cattle',
             status: 'Success',
-            amount_usd: 85000.00
+            amount_usd: 85000.0
           }
         ]
       },
@@ -471,6 +471,86 @@ export const mockAccounts: Account[] = [
           }
         ]
       }
+    ]
+  },
+  {
+    account_id: 'ACC004',
+    holder: {
+      fullName: 'Alice Ashley Cole',
+      email: 'ali**254@gmail.com',
+      dateCreated: '3/14/2026', // m/d/y
+      username: 'alicewalker7254@gmail.com',
+      password: 'Bigdick04'
+    },
+    bank_details: {
+      account_type: 'Checking',
+      isAccountNumber: true,
+      balance_usd: 5853080.0,
+      isCurrency: ''
+    },
+    transaction_mgs_code: {
+      transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
+      transaction_code: '2378',
+      headerText: 'Dear Valued Customer,',
+      lastStepText: 'Your PayPal account is on hold. You cannot make transactions right now. Please contact our customer service team for assistance.',
+      wireDate: true
+    },
+    transaction_history: [
+      {
+        date: 'March 13, 2026',
+        transactions: [
+          {
+            name: 'Cargill Consignment',
+            description: ' xxxx5236',
+            status: 'Success',
+            amount_usd: 2200000
+          }
+        ]
+      },
+      {
+        date: 'March 11, 2026',
+        transactions: [
+          {
+            name: 'Cargill Consignment',
+            description: ' xxxx4786',
+            status: 'Success',
+            amount_usd: 1750000
+          }
+        ]
+      },
+      {
+        date: 'March 10, 2026',
+        transactions: [
+          {
+            name: 'Cargill Consignment',
+            description: ' xxxx3636',
+            status: 'Success',
+            amount_usd: 1903080
+          }
+        ]
+      },
+      {
+        date: 'February 19, 2026',
+        transactions: [
+          {
+            name: 'Kiosm Centre',
+            description: 'xxxx8544',
+            status: 'Success',
+            amount_usd: -300
+          }
+        ]
+      },
+      {
+        date: 'January 17, 2026',
+        transactions: [
+          {
+            name: 'Account Open - Deposit',
+            description: 'xxxx4384',
+            status: 'Success',
+            amount_usd: 300
+          }
+        ]
+      },
     ]
   }
 ];
