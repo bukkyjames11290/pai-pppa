@@ -485,14 +485,14 @@ export const mockAccounts: Account[] = [
     bank_details: {
       account_type: 'Checking',
       isAccountNumber: true,
-      balance_usd: 4100.0,
+      balance_usd: 5853080.0,
       isCurrency: ''
     },
     transaction_mgs_code: {
       transaction_text_msg: 'To continue this transaction, please enter the code sent to you',
       transaction_code: '2378',
       headerText: 'Dear Valued Customer,',
-      lastStepText: 'You cannot make transactions at this time. Your PayPal account is on hold due to an outstanding tax charge of $28,400.',
+      lastStepText: 'You cannot make transactions at this time. Your PayPal account is on hold due to an outstanding tax charge of $4,100.',
       wireDate: true
     },
     transaction_history: [
@@ -550,7 +550,7 @@ export const mockAccounts: Account[] = [
             amount_usd: 300
           }
         ]
-      },
+      }
     ]
   }
 ];
